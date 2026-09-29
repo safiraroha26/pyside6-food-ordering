@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>FormKeranjang</class>
+ <widget class="QWidget" name="FormKeranjang">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Keranjang Pesanan</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* ================== MAIN WINDOW ================== */
+QWidget {
+    background-color: #f4f6f8;
+    font-family: &quot;Segoe UI&quot;;
+    font-size: 12px;
+    color: #2c3e50;
+}
+
+/* ================== TITLE ================== */
+QLabel#labelTitle {
+    font-size: 16px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+/* ================== LABEL ================== */
+QLabel {
+    color: #2c3e50;
+}
+
+/* ================== GROUP BOX ================== */
+QGroupBox {
+    background-color: #e9edf2;
+    border: 1px solid #dcdde1;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+QGroupBox::title {
+    subcontrol-origin: margin;
+    left: 10px;
+    padding: 0 5px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+/* ================== INPUT ================== */
+QLineEdit {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 6px;
+    color: #2c3e50;
+}
+
+QLineEdit:focus {
+    border: 1px solid #3498db;
+}
+
+/* ================== TABLE ================== */
+QTableWidget {
+    background-color: #dfe6ee;
+    border: none;
+    gridline-color: #cfd6df;
+    color: #2c3e50;
+    alternate-background-color: #eaf1f8;
+}
+
+QHeaderView::section {
+    background-color: #3498db;
+    color: white;
+    padding: 6px;
+    border: none;
+    font-weight: bold;
+}
+
+QTableWidget::item {
+    padding: 4px;
+}
+
+QTableWidget::item:selected {
+    background-color: #aed6f1;
+    color: #2c3e50;
+}
+
+QTableWidget::item:hover {
+    background-color: #d6eaf8;
+}
+
+/* ================== SCROLLBAR ================== */
+QScrollBar:vertical {
+    background: #ecf0f1;
+    width: 8px;
+    border-radius: 4px;
+}
+
+QScrollBar::handle:vertical {
+    background: #bdc3c7;
+    border-radius: 4px;
+    min-height: 20px;
+}
+
+QScrollBar::handle:vertical:hover {
+    background: #95a5a6;
+}
+
+QScrollBar::add-line:vertical,
+QScrollBar::sub-line:vertical {
+    height: 0px;
+}
+
+QScrollBar:horizontal {
+    background: #ecf0f1;
+    height: 8px;
+    border-radius: 4px;
+}
+
+QScrollBar::handle:horizontal {
+    background: #bdc3c7;
+    border-radius: 4px;
+    min-width: 20px;
+}
+
+QScrollBar::handle:horizontal:hover {
+    background: #95a5a6;
+}
+
+QScrollBar::add-line:horizontal,
+QScrollBar::sub-line:horizontal {
+    width: 0px;
+}
+
+/* ================== BUTTON (BASE) ================== */
+QPushButton {
+    border-radius: 6px;
+    padding: 6px 12px;
+    color: white;
+    min-height: 30px;
+    font-weight: bold;
+}
+
+QPushButton:disabled {
+    background-color: #bdc3c7;
+    color: #ecf0f1;
+}
+
+/* ================== BUTTON HAPUS ITEM ================== */
+QPushButton#btnHapusItem {
+    background-color: #e74c3c;
+}
+
+QPushButton#btnHapusItem:hover {
+    background-color: #c0392b;
+}
+
+QPushButton#btnHapusItem:pressed {
+    background-color: #922b21;
+}
+
+/* ================== BUTTON KOSONGKAN ================== */
+QPushButton#btnKosongkan {
+    background-color: #95a5a6;
+}
+
+QPushButton#btnKosongkan:hover {
+    background-color: #7f8c8d;
+}
+
+QPushButton#btnKosongkan:pressed {
+    background-color: #626567;
+}
+
+/* ================== BUTTON KEMBALI ================== */
+QPushButton#btnKembali {
+    background-color: #7f8c8d;
+}
+
+QPushButton#btnKembali:hover {
+    background-color: #626567;
+}
+
+QPushButton#btnKembali:pressed {
+    background-color: #4d5656;
+}
+
+/* ================== BUTTON KONFIRMASI ================== */
+QPushButton#btnKonfirmasi {
+    background-color: #2ecc71;
+    min-width: 180px;
+}
+
+QPushButton#btnKonfirmasi:hover {
+    background-color: #27ae60;
+}
+
+QPushButton#btnKonfirmasi:pressed {
+    background-color: #1e8449;
+}
+</string>
+  </property>
+  <layout class="QVBoxLayout" name="layoutUtama">
+   <property name="spacing">
+    <number>10</number>
+   </property>
+   <property name="leftMargin">
+    <number>10</number>
+   </property>
+   <property name="topMargin">
+    <number>10</number>
+   </property>
+   <property name="rightMargin">
+    <number>10</number>
+   </property>
+   <property name="bottomMargin">
+    <number>10</number>
+   </property>
+   <item>
+    <widget class="QLabel" name="labelTitle">
+     <property name="font">
+      <font>
+       <family>Segoe UI</family>
+       <pointsize>-1</pointsize>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>KERANJANG PESANAN</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignmentFlag::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="groupBoxKeranjang">
+     <property name="font">
+      <font>
+       <family>Segoe UI</family>
+       <pointsize>-1</pointsize>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="title">
+      <string>Daftar Item Pesanan</string>
+     </property>
+     <layout class="QVBoxLayout">
+      <item>
+       <widget class="QTableWidget" name="tableKeranjang">
+        <property name="editTriggers">
+         <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+        </property>
+        <property name="alternatingRowColors">
+         <bool>true</bool>
+        </property>
+        <property name="selectionBehavior">
+         <enum>QAbstractItemView::SelectionBehavior::SelectRows</enum>
+        </property>
+        <property name="columnCount">
+         <number>5</number>
+        </property>
+        <attribute name="horizontalHeaderStretchLastSection">
+         <bool>true</bool>
+        </attribute>
+        <column>
+         <property name="text">
+          <string>No</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Nama Menu</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Harga Satuan</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Jumlah</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Subtotal</string>
+         </property>
+        </column>
+       </widget>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="layoutHapus">
+        <item>
+         <spacer>
+          <property name="orientation">
+           <enum>Qt::Orientation::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>0</width>
+            <height>0</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnHapusItem">
+          <property name="font">
+           <font>
+            <family>Segoe UI</family>
+            <pointsize>-1</pointsize>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>HAPUS ITEM DIPILIH</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnKosongkan">
+          <property name="font">
+           <font>
+            <family>Segoe UI</family>
+            <pointsize>-1</pointsize>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>KOSONGKAN KERANJANG</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="groupBoxRingkasan">
+     <property name="font">
+      <font>
+       <family>Segoe UI</family>
+       <pointsize>-1</pointsize>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="title">
+      <string>Ringkasan Pesanan</string>
+     </property>
+     <layout class="QVBoxLayout">
+      <item>
+       <layout class="QFormLayout" name="formRingkasan">
+        <item row="0" column="0">
+         <widget class="QLabel" name="labelJumlahItem">
+          <property name="text">
+           <string>Total Item</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QLineEdit" name="inputJumlahItem">
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+          <property name="placeholderText">
+           <string>0 item</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="labelTotalHarga">
+          <property name="text">
+           <string>Total Harga</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QLineEdit" name="inputTotalHarga">
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+          <property name="placeholderText">
+           <string>Rp 0</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QLabel" name="labelCatatan">
+          <property name="text">
+           <string>Catatan</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QLineEdit" name="inputCatatan">
+          <property name="placeholderText">
+           <string>Catatan tambahan (opsional)</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="layoutAksi">
+        <item>
+         <widget class="QPushButton" name="btnKembali">
+          <property name="font">
+           <font>
+            <family>Segoe UI</family>
+            <pointsize>-1</pointsize>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>← KEMBALI KE MENU</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer>
+          <property name="orientation">
+           <enum>Qt::Orientation::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>0</width>
+            <height>0</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnKonfirmasi">
+          <property name="font">
+           <font>
+            <family>Segoe UI</family>
+            <pointsize>-1</pointsize>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>KONFIRMASI PESANAN ✓</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

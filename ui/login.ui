@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>FormLogin</class>
+ <widget class="QWidget" name="FormLogin">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>462</width>
+    <height>503</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Aplikasi Pemesanan Makanan</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* ===============================
+   BACKGROUND UTAMA
+================================= */
+QWidget {
+    background-color: #f4f6f8;
+    font-family: &quot;Segoe UI&quot;;
+    font-size: 12px;
+    color: #2c3e50;
+}
+
+/* ===============================
+   JUDUL APLIKASI
+================================= */
+QLabel#labelAppTitle {
+    font-size: 17px;
+    font-weight: bold;
+    color: #2c3e50;
+    padding: 10px;
+}
+
+/* ===============================
+   LABEL JUDUL TAB (Selamat Datang / Buat Akun)
+================================= */
+QLabel#labelLoginTitle,
+QLabel#labelDaftarTitle {
+    font-size: 14px;
+    font-weight: bold;
+    color: #2c3e50;
+    padding: 6px 0px;
+}
+
+/* ===============================
+   LABEL FIELD
+================================= */
+QLabel {
+    font-size: 12px;
+    color: #2c3e50;
+}
+
+/* ===============================
+   TOGGLE TAB: MASUK / DAFTAR
+   (dihandle lewat Python _set_tab_style)
+================================= */
+QPushButton#btnTabLogin,
+QPushButton#btnTabDaftar {
+    border-radius: 0px;
+    padding: 8px;
+    font-weight: bold;
+    font-size: 12px;
+    min-height: 32px;
+    border: none;
+}
+
+/* ===============================
+   INPUT FIELD
+================================= */
+QLineEdit {
+    background-color: white;
+    color: #2c3e50;
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+    padding: 8px;
+    font-size: 12px;
+}
+
+QLineEdit:focus {
+    border: 1px solid #2ecc71;
+}
+
+/* ===============================
+   BUTTON MASUK
+================================= */
+QPushButton#btn_login {
+    background-color: #2ecc71;
+    color: white;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 13px;
+    font-weight: bold;
+    min-height: 36px;
+}
+
+QPushButton#btn_login:hover {
+    background-color: #27ae60;
+}
+
+QPushButton#btn_login:pressed {
+    background-color: #219150;
+}
+
+/* ===============================
+   BUTTON DAFTAR SEKARANG
+================================= */
+QPushButton#btn_daftar {
+    background-color: #8e44ad;
+    color: white;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 13px;
+    font-weight: bold;
+    min-height: 36px;
+}
+
+QPushButton#btn_daftar:hover {
+    background-color: #7d3c98;
+}
+
+QPushButton#btn_daftar:pressed {
+    background-color: #6c3483;
+}
+
+/* ===============================
+   STACKED WIDGET (transparan)
+================================= */
+QStackedWidget {
+    background-color: transparent;
+}</string>
+  </property>
+  <layout class="QVBoxLayout" name="layoutUtama">
+   <property name="spacing">
+    <number>14</number>
+   </property>
+   <property name="leftMargin">
+    <number>40</number>
+   </property>
+   <property name="topMargin">
+    <number>30</number>
+   </property>
+   <property name="rightMargin">
+    <number>40</number>
+   </property>
+   <property name="bottomMargin">
+    <number>30</number>
+   </property>
+   <item>
+    <widget class="QLabel" name="labelAppTitle">
+     <property name="font">
+      <font>
+       <family>Segoe UI</family>
+       <pointsize>-1</pointsize>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>🍽 PEMESANAN MAKANAN</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignmentFlag::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="layoutToggle">
+     <property name="spacing">
+      <number>0</number>
+     </property>
+     <item>
+      <widget class="QPushButton" name="btnTabLogin">
+       <property name="text">
+        <string>MASUK</string>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnTabDaftar">
+       <property name="text">
+        <string>DAFTAR</string>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+       <property name="checked">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QStackedWidget" name="stackedWidget">
+     <widget class="QWidget" name="pageLogin">
+      <layout class="QVBoxLayout" name="layoutLogin">
+       <property name="spacing">
+        <number>10</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QLabel" name="labelLoginTitle">
+         <property name="font">
+          <font>
+           <family>Segoe UI</family>
+           <pointsize>-1</pointsize>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Selamat Datang Kembali!</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_user">
+         <property name="text">
+          <string>Username</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="input_user">
+         <property name="placeholderText">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_pass">
+         <property name="text">
+          <string>Password</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="input_pass">
+         <property name="echoMode">
+          <enum>QLineEdit::EchoMode::Password</enum>
+         </property>
+         <property name="placeholderText">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer>
+         <property name="orientation">
+          <enum>Qt::Orientation::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>0</width>
+           <height>10</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btn_login">
+         <property name="font">
+          <font>
+           <family>Segoe UI</family>
+           <pointsize>-1</pointsize>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>MASUK</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="pageDaftar">
+      <layout class="QVBoxLayout" name="layoutDaftar">
+       <property name="spacing">
+        <number>10</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QLabel" name="labelDaftarTitle">
+         <property name="font">
+          <font>
+           <family>Segoe UI</family>
+           <pointsize>-1</pointsize>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Buat Akun Baru</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_reg_user">
+         <property name="text">
+          <string>Username</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="input_reg_user">
+         <property name="placeholderText">
+          <string>Buat username...</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_reg_pass">
+         <property name="text">
+          <string>Password</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="input_reg_pass">
+         <property name="echoMode">
+          <enum>QLineEdit::EchoMode::Password</enum>
+         </property>
+         <property name="placeholderText">
+          <string>Buat password (min. 4 karakter)...</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_reg_konfirm">
+         <property name="text">
+          <string>Konfirmasi Password</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="input_reg_konfirm">
+         <property name="echoMode">
+          <enum>QLineEdit::EchoMode::Password</enum>
+         </property>
+         <property name="placeholderText">
+          <string>Ulangi password...</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer>
+         <property name="orientation">
+          <enum>Qt::Orientation::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>0</width>
+           <height>10</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btn_daftar">
+         <property name="font">
+          <font>
+           <family>Segoe UI</family>
+           <pointsize>-1</pointsize>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>DAFTAR SEKARANG</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
